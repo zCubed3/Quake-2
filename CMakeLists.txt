@@ -1,7 +1,7 @@
 #
 # CMake Project Setup
 #
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.24)
 
 project(ZealotQuake2)
 
@@ -33,6 +33,19 @@ set(ZEALOT_CLIENT_NAME "quake2")
 
 # TODO: Change quake to not depend on post-fixed DLLs
 set(ZEALOT_GAME_NAME "game_x64")
+
+#
+# Dependencies
+#
+include(FetchContent)
+
+FetchContent_Declare(
+    SDL
+    GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
+    GIT_TAG        2000ccb541fcd4cc22c1d0c91e09926228782b3a
+)
+
+FetchContent_MakeAvailable(SDL)
 
 #
 # Platform modules
