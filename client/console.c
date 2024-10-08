@@ -588,9 +588,9 @@ void Con_DrawConsole (float frac)
 	SCR_AddDirtyPoint (0,0);
 	SCR_AddDirtyPoint (viddef.width-1,lines-1);
 
-	Com_sprintf (version, sizeof(version), "v%4.2f", VERSION);
-	for (x=0 ; x<5 ; x++)
-		re.DrawChar (viddef.width-44+x*8, lines-12, 128 + version[x] );
+	Com_sprintf (version, sizeof(version), "ZQ2 v%4.2f", VERSION);
+	for (x=0 ; x<9 ; x++)
+		re.DrawChar (viddef.width-72+x*8, lines-12, 128 + version[x] );
 
 // draw the text
 	con.vislines = lines;

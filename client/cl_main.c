@@ -80,6 +80,7 @@ cvar_t	*name;
 cvar_t	*skin;
 cvar_t	*rate;
 cvar_t	*fov;
+cvar_t  *v_fov;
 cvar_t	*msg;
 cvar_t	*hand;
 cvar_t	*gender;
@@ -1478,7 +1479,8 @@ void CL_InitLocal (void)
 	rate = Cvar_Get ("rate", "25000", CVAR_USERINFO | CVAR_ARCHIVE);	// FIXME
 	msg = Cvar_Get ("msg", "1", CVAR_USERINFO | CVAR_ARCHIVE);
 	hand = Cvar_Get ("hand", "0", CVAR_USERINFO | CVAR_ARCHIVE);
-	fov = Cvar_Get ("fov", "90", CVAR_USERINFO | CVAR_ARCHIVE);
+    fov = Cvar_Get ("fov", "90", CVAR_USERINFO | CVAR_ARCHIVE);
+    v_fov = Cvar_Get ("v_fov", "90", CVAR_USERINFO | CVAR_ARCHIVE);
 	gender = Cvar_Get ("gender", "male", CVAR_USERINFO | CVAR_ARCHIVE);
 	gender_auto = Cvar_Get ("gender_auto", "1", CVAR_ARCHIVE);
 	gender->modified = false; // clear this so we know when user sets it manually
@@ -1502,7 +1504,8 @@ void CL_InitLocal (void)
 	Cmd_AddCommand ("record", CL_Record_f);
 	Cmd_AddCommand ("stop", CL_Stop_f);
 
-	Cmd_AddCommand ("quit", CL_Quit_f);
+    Cmd_AddCommand ("quit", CL_Quit_f);
+    Cmd_AddCommand ("qqq", CL_Quit_f);
 
 	Cmd_AddCommand ("connect", CL_Connect_f);
 	Cmd_AddCommand ("reconnect", CL_Reconnect_f);

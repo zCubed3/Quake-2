@@ -3776,8 +3776,13 @@ void PlayerConfig_MenuDraw( void )
 	refdef.y = viddef.height / 2 - 72;
 	refdef.width = 144;
 	refdef.height = 168;
-	refdef.fov_x = 40;
-	refdef.fov_y = CalcFov( refdef.fov_x, refdef.width, refdef.height );
+
+    refdef.fov_x = 40;
+    refdef.fov_y = CalcFov( refdef.fov_x, refdef.width, refdef.height );
+
+    refdef.v_fov_x = 40;
+    refdef.v_fov_y = CalcFov( refdef.v_fov_x, refdef.width, refdef.height );
+
 	refdef.time = cls.realtime*0.001;
 
 	if ( s_pmi[s_player_model_box.curvalue].skindisplaynames )

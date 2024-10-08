@@ -32,9 +32,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 #include <assert.h>
 #include <windows.h>
+#include <dwmapi.h>
 #include "../ref_gl/gl_local.h"
 #include "glw_win.h"
 #include "winquake.h"
+
+#ifndef DWMWA_USE_IMMERSIVE_DARK_MODE
+#define DWMWA_USE_IMMERSIVE_DARK_MODE 20
+#endif
 
 static qboolean GLimp_SwitchFullscreen( int width, int height );
 qboolean GLimp_InitGL (void);
@@ -69,6 +74,8 @@ qboolean VID_CreateWindow( int width, int height, qboolean fullscreen )
 	int				stylebits;
 	int				x, y, w, h;
 	int				exstyle;
+    int             discard_value;
+    HICON           hIdIcon;
 
 	/* Register the frame class */
     wc.style         = 0;
@@ -132,7 +139,12 @@ qboolean VID_CreateWindow( int width, int height, qboolean fullscreen )
 
 	if (!glw_state.hWnd)
 		ri.Sys_Error (ERR_FATAL, "Couldn't create window");
-	
+
+    DwmSetWindowAttribute(glw_state.hWnd, DWMWA_USE_IMMERSIVE_DARK_MODE, &discard_value, sizeof(discard_value));
+
+    hIdIcon = LoadIconA(glw_state.hInstance, "IDI_ICON1");
+    SendMessage(glw_state.hWnd, WM_SETICON, ICON_SMALL, (LPARAM)hIdIcon);
+
 	ShowWindow( glw_state.hWnd, SW_SHOW );
 	UpdateWindow( glw_state.hWnd );
 

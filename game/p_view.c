@@ -986,6 +986,7 @@ void ClientEndServerFrame (edict_t *ent)
 		// FIXME: add view drifting here?
 		current_client->ps.blend[3] = 0;
 		current_client->ps.fov = 90;
+        current_client->ps.v_fov = 90;
 		G_SetStats (ent);
 		return;
 	}

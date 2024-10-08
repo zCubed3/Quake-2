@@ -156,9 +156,6 @@ void IN_ActivateMouse (void)
 
 	mouseactive = true;
 
-	if (mouseparmsvalid)
-		restore_spi = SystemParametersInfo (SPI_SETMOUSE, 0, newmouseparms, 0);
-
 	width = GetSystemMetrics (SM_CXSCREEN);
 	height = GetSystemMetrics (SM_CYSCREEN);
 

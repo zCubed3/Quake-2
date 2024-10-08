@@ -24,6 +24,7 @@ if (WIN32)
 
     list(APPEND REF_GL_LIBS
         "winmm"
+        "dwmapi"
     )
 endif()
 

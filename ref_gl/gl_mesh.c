@@ -713,18 +713,25 @@ void R_DrawAliasModel (entity_t *e)
 	if (currententity->flags & RF_DEPTHHACK) // hack the depth range to prevent view model from poking into walls
 		qglDepthRange (gldepthmin, gldepthmin + 0.3*(gldepthmax-gldepthmin));
 
-	if ( ( currententity->flags & RF_WEAPONMODEL ) && ( r_lefthand->value == 1.0F ) )
+	if (currententity->flags & RF_WEAPONMODEL)
 	{
-		extern void MYgluPerspective( GLdouble fovy, GLdouble aspect, GLdouble zNear, GLdouble zFar );
+        extern void MYgluPerspective( GLdouble fovy, GLdouble aspect, GLdouble zNear, GLdouble zFar );
+        float handedness = 1;
+        int cull_side = GL_FRONT;
+
+        if (r_lefthand->value == 1.0F) {
+            handedness = -1;
+            cull_side = GL_BACK;
+        }
 
 		qglMatrixMode( GL_PROJECTION );
 		qglPushMatrix();
 		qglLoadIdentity();
-		qglScalef( -1, 1, 1 );
-	    MYgluPerspective( r_newrefdef.fov_y, ( float ) r_newrefdef.width / r_newrefdef.height,  4,  4096);
+		qglScalef( handedness, 1, 1 );
+	    MYgluPerspective( r_newrefdef.v_fov_y, ( float ) r_newrefdef.width / r_newrefdef.height,  4,  4096);
 		qglMatrixMode( GL_MODELVIEW );
 
-		qglCullFace( GL_BACK );
+		qglCullFace( cull_side );
 	}
 
     qglPushMatrix ();
@@ -803,7 +810,7 @@ void R_DrawAliasModel (entity_t *e)
 	qglEnable( GL_CULL_FACE );
 #endif
 
-	if ( ( currententity->flags & RF_WEAPONMODEL ) && ( r_lefthand->value == 1.0F ) )
+	if (currententity->flags & RF_WEAPONMODEL)
 	{
 		qglMatrixMode( GL_PROJECTION );
 		qglPopMatrix();

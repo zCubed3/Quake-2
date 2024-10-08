@@ -337,6 +337,7 @@ LONG WINAPI MainWndProc (
 		SCR_DirtyScreen ();	// force entire screen to update next frame
         return DefWindowProc (hWnd, uMsg, wParam, lParam);
 
+    case WM_CLOSE:
 	case WM_DESTROY:
 		// let sound and input know about this?
 		cl_hwnd = NULL;
@@ -416,6 +417,7 @@ LONG WINAPI MainWndProc (
 	case WM_SYSCOMMAND:
 		if ( wParam == SC_SCREENSAVE )
 			return 0;
+
         return DefWindowProc (hWnd, uMsg, wParam, lParam);
 	case WM_SYSKEYDOWN:
 		if ( wParam == 13 )

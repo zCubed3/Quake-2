@@ -1193,7 +1193,7 @@ void PutClientInServer (edict_t *ent)
 
 	if (deathmatch->value && ((int)dmflags->value & DF_FIXED_FOV))
 	{
-		client->ps.fov = 90;
+        client->ps.v_fov = client->ps.fov = 90;
 	}
 	else
 	{
@@ -1202,6 +1202,13 @@ void PutClientInServer (edict_t *ent)
 			client->ps.fov = 90;
 		else if (client->ps.fov > 160)
 			client->ps.fov = 160;
+
+        ent->client->ps.v_fov = atoi(Info_ValueForKey(client->pers.userinfo, "v_fov"));
+
+        if (ent->client->ps.v_fov < 50)
+            ent->client->ps.v_fov = 50;
+        else if (ent->client->ps.v_fov > 130)
+            ent->client->ps.v_fov = 130;
 	}
 
 	client->ps.gunindex = gi.modelindex(client->pers.weapon->view_model);
@@ -1393,15 +1400,23 @@ void ClientUserinfoChanged (edict_t *ent, char *userinfo)
 	// fov
 	if (deathmatch->value && ((int)dmflags->value & DF_FIXED_FOV))
 	{
-		ent->client->ps.fov = 90;
+        ent->client->ps.v_fov = ent->client->ps.fov = 90;
 	}
 	else
 	{
 		ent->client->ps.fov = atoi(Info_ValueForKey(userinfo, "fov"));
+
 		if (ent->client->ps.fov < 1)
 			ent->client->ps.fov = 90;
 		else if (ent->client->ps.fov > 160)
 			ent->client->ps.fov = 160;
+
+        ent->client->ps.v_fov = atoi(Info_ValueForKey(userinfo, "v_fov"));
+
+        if (ent->client->ps.v_fov < 50)
+            ent->client->ps.v_fov = 50;
+        else if (ent->client->ps.v_fov > 130)
+            ent->client->ps.v_fov = 130;
 	}
 
 	// handedness

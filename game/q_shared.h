@@ -1182,6 +1182,7 @@ typedef struct
 	float		blend[4];		// rgba full screen effect
 	
 	float		fov;			// horizontal field of view
+    float       v_fov;          // horizontal field of view (viewmodels)
 
 	int			rdflags;		// refdef flags
 

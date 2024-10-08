@@ -60,3 +60,5 @@ add_executable(Zealot_Client ${BUILD_TYPE} ${CLIENT_SRCS})
 target_link_libraries(Zealot_Client PRIVATE ${CLIENT_LIBS})
 
 set_target_properties(Zealot_Client PROPERTIES OUTPUT_NAME "${ZEALOT_CLIENT_NAME}")
+
+add_dependencies(Zealot_Client Zealot_Game Zealot_RefGL)
