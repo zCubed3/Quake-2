@@ -39,6 +39,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 // game.h -- game dll information visible to server
 
+#include "../qcommon/qexport.h"
+
 #define	GAME_API_VERSION	3
 
 // edict->svflags
@@ -251,4 +253,5 @@ typedef struct
 	int			max_edicts;
 } game_export_t;
 
+QEXPORT
 game_export_t *GetGameApi (game_import_t *import);

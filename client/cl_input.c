@@ -461,6 +461,9 @@ void CL_SendCmd (void)
 
 	// build a command even if not connected
 
+    // Clear buf to zero (MSVC error fix)
+    memset(&buf, 0, sizeof(buf));
+
 	// save this command off for prediction
 	i = cls.netchan.outgoing_sequence & (CMD_BACKUP-1);
 	cmd = &cl.cmds[i];

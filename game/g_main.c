@@ -107,6 +107,7 @@ Returns a pointer to the structure with all entry points
 and global variables
 =================
 */
+QEXPORT
 game_export_t *GetGameAPI (game_import_t *import)
 {
 	gi = *import;

@@ -436,12 +436,14 @@ LONG WINAPI MainWndProc (
 		Key_Event( MapKey( lParam ), false, sys_msg_time);
 		break;
 
+        /* LEGACY CD AUDIO CODE
 	case MM_MCINOTIFY:
 		{
 			LONG CDAudio_MessageHandler(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 			lRet = CDAudio_MessageHandler (hWnd, uMsg, wParam, lParam);
 		}
 		break;
+         */
 
 	default:	// pass all unhandled messages to DefWindowProc
         return DefWindowProc (hWnd, uMsg, wParam, lParam);

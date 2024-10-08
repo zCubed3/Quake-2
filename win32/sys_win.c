@@ -476,21 +476,21 @@ void *Sys_GetGameAPI (void *parms)
 	char	*path;
 	char	cwd[MAX_OSPATH];
 #if defined _M_IX86
-	const char *gamename = "gamex86.dll";
+	const char *gamename = "game_x86.dll";
 
 #ifdef NDEBUG
-	const char *debugdir = "release";
+	const char *debugdir = "release_x86";
 #else
-	const char *debugdir = "debug";
+	const char *debugdir = "debug_x86";
 #endif
 
-#elif defined _M_ALPHA
-	const char *gamename = "gameaxp.dll";
+#elif defined _M_AMD64
+	const char *gamename = "game_x64.dll";
 
 #ifdef NDEBUG
-	const char *debugdir = "releaseaxp";
+	const char *debugdir = "release_amd64";
 #else
-	const char *debugdir = "debugaxp";
+	const char *debugdir = "debug_amd64";
 #endif
 
 #endif
@@ -649,10 +649,7 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 			newtime = Sys_Milliseconds ();
 			time = newtime - oldtime;
 		} while (time < 1);
-//			Con_Printf ("time:%5.2f - %5.2f = %5.2f\n", newtime, oldtime, time);
 
-		//	_controlfp( ~( _EM_ZERODIVIDE /*| _EM_INVALID*/ ), _MCW_EM );
-		_controlfp( _PC_24, _MCW_PC );
 		Qcommon_Frame (time);
 
 		oldtime = newtime;

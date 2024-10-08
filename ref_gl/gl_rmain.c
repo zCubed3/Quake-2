@@ -20,6 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 // r_main.c
 #include "gl_local.h"
 
+#include "../qcommon/qexport.h"
+
 void R_Clear (void);
 
 viddef_t	vid;
@@ -1621,6 +1623,8 @@ GetRefAPI
 
 @@@@@@@@@@@@@@@@@@@@@
 */
+
+QEXPORT
 refexport_t GetRefAPI (refimport_t rimp )
 {
 	refexport_t	re;

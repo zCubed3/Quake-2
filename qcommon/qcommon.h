@@ -22,7 +22,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../game/q_shared.h"
 
-
 #define	VERSION		3.19
 
 #define	BASEDIRNAME	"baseq2"
@@ -37,8 +36,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #ifdef _M_IX86
 #define	CPUSTRING	"x86"
-#elif defined _M_ALPHA
-#define	CPUSTRING	"AXP"
+#elif defined(_M_AMD64)
+#define	CPUSTRING   "AMD64"
 #endif
 
 #elif defined __linux__
