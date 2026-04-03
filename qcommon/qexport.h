@@ -21,8 +21,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 // qexport.h -- Helpers for exporting / importing functions from a DLL
 
-#ifndef ZEALOTQUAKE2_QEXPORT_H
-#define ZEALOTQUAKE2_QEXPORT_H
+#ifndef QUAKE2_QEXPORT_H
+#define QUAKE2_QEXPORT_H
 
 // TODO: Handle C++?
 
@@ -33,4 +33,4 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #endif
 
-#endif //ZEALOTQUAKE2_QEXPORT_H
+#endif //QUAKE2_QEXPORT_H

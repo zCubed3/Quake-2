@@ -39,10 +39,10 @@ list(APPEND REF_GL_LIBS
 #
 # Library definition
 #
-add_library(Zealot_RefGL SHARED ${REF_GL_SRCS})
+add_library(QuakeRefGL SHARED ${REF_GL_SRCS})
 
-target_compile_definitions(Zealot_RefGL PRIVATE ${ZEALOT_GDEFS})
+target_compile_definitions(QuakeRefGL PRIVATE ${QUAKE_GDEFS})
 
-target_link_libraries(Zealot_RefGL PRIVATE ${REF_GL_LIBS})
+target_link_libraries(QuakeRefGL PRIVATE ${REF_GL_LIBS})
 
-set_target_properties(Zealot_RefGL PROPERTIES OUTPUT_NAME "ref_gl")
+set_target_properties(QuakeRefGL PROPERTIES OUTPUT_NAME "ref_gl")

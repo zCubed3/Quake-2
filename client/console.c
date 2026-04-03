@@ -588,7 +588,7 @@ void Con_DrawConsole (float frac)
 	SCR_AddDirtyPoint (0,0);
 	SCR_AddDirtyPoint (viddef.width-1,lines-1);
 
-	Com_sprintf (version, sizeof(version), "ZQ2 v%4.2f", VERSION);
+	Com_sprintf (version, sizeof(version), "ZealotQuake2 v%4.2f", VERSION);
 	for (x=0 ; x<9 ; x++)
 		re.DrawChar (viddef.width-72+x*8, lines-12, 128 + version[x] );
 

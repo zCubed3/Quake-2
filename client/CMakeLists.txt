@@ -55,10 +55,10 @@ endif()
 #
 # Executable definition
 #
-add_executable(Zealot_Client ${BUILD_TYPE} ${CLIENT_SRCS})
+add_executable(QuakeClient ${BUILD_TYPE} ${CLIENT_SRCS})
 
-target_link_libraries(Zealot_Client PRIVATE ${CLIENT_LIBS})
+target_link_libraries(QuakeClient PRIVATE ${CLIENT_LIBS})
 
-set_target_properties(Zealot_Client PROPERTIES OUTPUT_NAME "${ZEALOT_CLIENT_NAME}")
+set_target_properties(QuakeClient PROPERTIES OUTPUT_NAME "${QUAKE_CLIENT_NAME}")
 
-add_dependencies(Zealot_Client Zealot_Game Zealot_RefGL)
+add_dependencies(QuakeClient QuakeGame QuakeRefGL)

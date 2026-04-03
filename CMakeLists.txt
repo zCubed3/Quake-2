@@ -3,7 +3,7 @@
 #
 cmake_minimum_required(VERSION 3.15)
 
-project(ZealotQuake2)
+project(Quake2)
 
 set(CMAKE_C_STANDARD 99)
 
@@ -16,7 +16,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_ARCHIVE_OUTPUT_DIRECTORY})
 #
 # Global definitions
 #
-list(APPEND ZEALOT_GDEFS
+list(APPEND QUAKE_GDEFS
     _CRT_SECURE_NO_WARNINGS
     C_ONLY
     $<$<CONFIG:Debug>:DEBUG>
@@ -26,13 +26,13 @@ list(APPEND ZEALOT_GDEFS
 #
 # Project options
 #
-option(ZEALOT_BUILD_REF_GL "Builds the RefGL (OpenGL Renderer) module" ON)
+option(QUAKE_BUILD_REF_GL "Builds the RefGL (OpenGL Renderer) module" ON)
 
 # TODO: Include this from a BuildInfo.txt file
-set(ZEALOT_CLIENT_NAME "quake2")
+set(QUAKE_CLIENT_NAME "quake2")
 
 # TODO: Change quake to not depend on post-fixed DLLs
-set(ZEALOT_GAME_NAME "game_x64")
+set(QUAKE_GAME_NAME "game_x64")
 
 #
 # Platform modules
@@ -45,7 +45,7 @@ set(ZEALOT_GAME_NAME "game_x64")
 #
 include(qcommon/CMakeLists.txt)
 
-if (ZEALOT_BUILD_REF_GL)
+if (QUAKE_BUILD_REF_GL)
     add_subdirectory(ref_gl)
 endif()
 
