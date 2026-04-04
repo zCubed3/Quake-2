@@ -573,8 +573,10 @@ void Con_DrawConsole (float frac)
 	char			*text;
 	int				row;
 	int				lines;
-	char			version[64];
 	char			dlbar[1024];
+	static int		version_len;
+	static char		version_str[64];
+	static qboolean	version_set = 0;
 
 	lines = viddef.height * frac;
 	if (lines <= 0)
@@ -588,9 +590,13 @@ void Con_DrawConsole (float frac)
 	SCR_AddDirtyPoint (0,0);
 	SCR_AddDirtyPoint (viddef.width-1,lines-1);
 
-	Com_sprintf (version, sizeof(version), "ZealotQuake2 v%4.2f", VERSION);
-	for (x=0 ; x<9 ; x++)
-		re.DrawChar (viddef.width-72+x*8, lines-12, 128 + version[x] );
+	if (!version_set) {
+		version_len = Com_sprintf (version_str, sizeof(version_str), "ZealotQuake2 v%4.2f", VERSION);
+		version_set = true;
+	}
+
+	for (x = 0; x < version_len; x++)
+		re.DrawChar(viddef.width - (version_len * 8) + x * 8, lines-12, 128 + version_str[x]);
 
 // draw the text
 	con.vislines = lines;

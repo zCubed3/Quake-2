@@ -11,4 +11,4 @@ file(GLOB_RECURSE GAME_SRCS
 #
 add_library(QuakeGame SHARED ${GAME_SRCS})
 
-set_target_properties(QuakeGame PROPERTIES OUTPUT_NAME "${ZEALOT_GAME_NAME}")
+set_target_properties(QuakeGame PROPERTIES OUTPUT_NAME "${QUAKE_GAME_NAME}")
